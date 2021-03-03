@@ -24,19 +24,19 @@ python -m venv .venv --system-site-packages
 echo 'Installing micc-build ...'
 pip install et_micc_build
 
-module list
 
 #-------------------------------------------------------------------------------
 # Final comments
 if [[ $_ != $0 ]]
 then
   # script was sourced
+  module list
   echo 'You can now build the python module from the C++ code. Run:'
-  echo '  > micc-build'
+  echo '  (.venv) > micc-build'
 else
   # script was not sourced
   echo 'Source the LEADD/bin/leibniz.sh script to prepare your environment'
   echo 'for building the Python module form the C++ code using micc-build.'
   echo '  > . $VSC_SCRATCH/workspace/LEADD/bin/leibniz.sh'
-  echo '  > micc-build'
+  echo '  (.venv) > micc-build'
 fi
