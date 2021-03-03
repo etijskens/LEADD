@@ -61,24 +61,35 @@
 # )
 
 # Add include directories
+message($ENV{HOME})
 if(DEFINED ENV{VSC_SCRATCH})
+    message(scratch)
     # we are building on a VSC cluster
     # assuming modules intel/2020a, IntelPython3/2020a, IntelPython3-Packages,
-elseif($ENV(HOME) EQUAL /Users/etijskens )
+    SET(boost_root $ENV{EBROOTBOOST})
+    SET(rdkit_root " /data/antwerpen/205/vsc20574/RDKit")
+    SET(hdf5_root  $ENV{EBROOTHDF5})
+elseif( $ENV{HOME} STREQUAL "/Users/etijskens" )
+    message(home)
     SET(boost_root "/usr/local/Cellar/boost/1.75.0_1")
     SET(rdkit_root "/usr/local/Cellar/rdkit/2020.09.1")
-    SET(hdf5_root  "/usr/local/Cellar/hdf5/1.12.0_")
+    SET(hdf5_root  "/usr/local/Cellar/hdf5/1.12.0_1")
+else()
+    message(oops)
 endif()
-
+message("boost_root = ${boost_root}")
+message("rdkit_root = ${rdkit_root}")
+message("hdf5_root  = ${hdf5_root}")
 include_directories(
-    ${boost_root}/1.75.0_1/include
-    ${rdkit_root}/2020.09.1/include/rdkit
-    ${hdf5_root}/1.12.0_1/include
+    ${boost_root}/include
+    ${rdkit_root}/include/rdkit
+    ${hdf5_root}/include
 )
 
 # Add link directories
 link_directories(
     ${boost_root}/lib
+    ${rdkit_root}/lib
     ${hdf5_root}/lib
 )
 

@@ -27,6 +27,9 @@ pip install et_micc_build
 
 #-------------------------------------------------------------------------------
 # Final comments
+echo
+echo 'Congratulations: you now have the LEADD project in $VSC_SCRATCH/workspace/LEADD
+echo
 if [[ $_ != $0 ]]
 then
   # script was sourced
