@@ -111,6 +111,8 @@ ENV/
 
 # f2py, fortran, C/C++
 _f2py_build/
+_f90_build/
+_cmake_build/
 *.o
 *.so
 *.DSYM/

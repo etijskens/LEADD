@@ -1,0 +1,38 @@
+{
+  "core": {
+    "options": {
+      "verbosity": 1,
+      "project_path": "/Users/etijskens/software/dev/workspace/LEADD",
+      "default_project_path": true,
+      "clear_log": false,
+      "template_parameters": {
+        "project_name": "LEADD",
+        "package_name": "leadd",
+        "full_name": "Bert Tijskens",
+        "email": "engelbert.tijskens@uantwerpen.be",
+        "github_username": "etijskens",
+        "version": "0.0.0",
+        "github_repo": "{{ cookiecutter.project_name }}",
+        "default_branch": "master",
+        "python_version": "3.7",
+        "sphinx_html_theme": "sphinx_rtd_theme",
+        "open_source_license": "MIT license",
+        "py": "py",
+        "project_short_description": "<Enter a one-sentence description of this project here.>",
+        "module_name": "core"
+      },
+      "add_name": "core",
+      "app": false,
+      "group": false,
+      "py": false,
+      "package": false,
+      "f90": false,
+      "cpp": true,
+      "templates": "module-cpp",
+      "overwrite": false,
+      "backup": false
+    },
+    "API.rst": "\n.. include:: ../leadd/cpp_core/core.rst\n",
+    "leadd/__init__.py": "\ntry:\n    import leadd.core\nexcept ModuleNotFoundError as e:\n    # Try to build this binary extension:\n    from pathlib import Path\n    import click\n    from et_micc_build.cli_micc_build import auto_build_binary_extension\n    msg = auto_build_binary_extension(Path(__file__).parent, 'core')\n    if not msg:\n        import leadd.core\n    else:\n        click.secho(msg, fg='bright_red')"
+  }
+}
