@@ -67,7 +67,8 @@ if(DEFINED ENV{VSC_SCRATCH})
     # we are building on a VSC cluster
     # assuming modules intel/2020a, IntelPython3/2020a, IntelPython3-Packages,
     SET(boost_root $ENV{EBROOTBOOST})
-    SET(rdkit_root " /data/antwerpen/205/vsc20574/RDKit")
+    SET(rdkit_root "/data/antwerpen/205/vsc20574/RDKit")
+    SET(rdkit_include "/data/antwerpen/205/vsc20574/RDKit/code")
     SET(hdf5_root  $ENV{EBROOTHDF5})
 elseif( $ENV{HOME} STREQUAL "/Users/etijskens" )
     message(home)
@@ -80,6 +81,8 @@ endif()
 message("boost_root = ${boost_root}")
 message("rdkit_root = ${rdkit_root}")
 message("hdf5_root  = ${hdf5_root}")
+
+
 include_directories(
     ${boost_root}/include
     ${rdkit_root}/include/rdkit
