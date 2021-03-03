@@ -64,7 +64,7 @@
 if(DEFINED ENV{VSC_SCRATCH})
     # we are building on a VSC cluster
     # assuming modules intel/2020a, IntelPython3/2020a, IntelPython3-Packages,
-elseif($ENV(HOME) EQUAL /Users/etijskens
+elseif($ENV(HOME) EQUAL /Users/etijskens )
     SET(boost_root "/usr/local/Cellar/boost/1.75.0_1")
     SET(rdkit_root "/usr/local/Cellar/rdkit/2020.09.1")
     SET(hdf5_root  "/usr/local/Cellar/hdf5/1.12.0_")
