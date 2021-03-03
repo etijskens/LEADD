@@ -63,7 +63,6 @@
 # Add include directories
 message($ENV{HOME})
 if(DEFINED ENV{VSC_SCRATCH})
-    message(scratch)
     # we are building on a VSC cluster
     # assuming modules intel/2020a, IntelPython3/2020a, IntelPython3-Packages,
     SET(boost_root $ENV{EBROOTBOOST})
@@ -71,19 +70,19 @@ if(DEFINED ENV{VSC_SCRATCH})
     SET(rdkit_include "/data/antwerpen/205/vsc20574/RDKit/Code")
     SET(hdf5_root  $ENV{EBROOTHDF5})
 elseif( $ENV{HOME} STREQUAL "/Users/etijskens" )
-    message(home)
     SET(boost_root "/usr/local/Cellar/boost/1.75.0_1")
     SET(rdkit_root "/usr/local/Cellar/rdkit/2020.09.1")
     SET(rdkit_include ${rdkit_root}/include/rdkit)
     SET(hdf5_root  "/usr/local/Cellar/hdf5/1.12.0_1")
 else()
-    message(oops)
+    message("Unknown build environment")
 endif()
+
+message()
 message("boost_root = ${boost_root}")
 message("rdkit_root = ${rdkit_root}")
 message("rdkit_root = ${rdkit_include}")
 message("hdf5_root  = ${hdf5_root}")
-
 
 include_directories(
     ${boost_root}/include
