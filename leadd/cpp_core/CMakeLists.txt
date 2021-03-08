@@ -78,7 +78,7 @@ else()
     message("Unknown build environment")
 endif()
 
-message()
+message("")
 message("boost_root = ${boost_root}")
 message("rdkit_root = ${rdkit_root}")
 message("rdkit_root = ${rdkit_include}")
